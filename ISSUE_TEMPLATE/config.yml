@@ -1,0 +1,5 @@
+blank_issues_enabled: true
+contact_links:
+  - name: ClickUp
+    url: https://app.clickup.com
+    about: Raise tasks and track work in ClickUp. Link the ClickUp task when opening a GitHub issue.

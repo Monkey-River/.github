@@ -1,0 +1,100 @@
+name: Incident
+description: Report a production incident or service disruption
+title: "[Incident]: "
+labels: ["incident"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this template to report and track a production incident. For urgent issues, notify the team directly via the appropriate channel before or alongside filing this report.
+
+  - type: input
+    id: ticket
+    attributes:
+      label: Ticket
+      description: Link to the related ClickUp task or postmortem document
+      placeholder: "https://app.clickup.com/t/..."
+    validations:
+      required: false
+
+  - type: dropdown
+    id: severity
+    attributes:
+      label: Severity
+      description: What is the impact of this incident?
+      options:
+        - "P1 - Critical: Complete outage or data loss"
+        - "P2 - High: Major feature unavailable, no workaround"
+        - "P3 - Medium: Degraded performance or partial outage"
+        - "P4 - Low: Minor issue with a workaround available"
+    validations:
+      required: true
+
+  - type: input
+    id: environment
+    attributes:
+      label: Affected Environment
+      placeholder: "production / staging"
+    validations:
+      required: true
+
+  - type: input
+    id: detected_at
+    attributes:
+      label: Detected At
+      description: When was the incident first noticed? (ISO 8601 preferred)
+      placeholder: "2026-05-16T10:00Z"
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Incident Description
+      description: What is happening? What systems or users are affected?
+    validations:
+      required: true
+
+  - type: textarea
+    id: impact
+    attributes:
+      label: User Impact
+      description: How many users or clients are affected? What can they not do?
+    validations:
+      required: true
+
+  - type: textarea
+    id: timeline
+    attributes:
+      label: Timeline
+      description: Key events in chronological order as they become known
+      placeholder: |
+        - 10:00 - Alerts fired for elevated error rate
+        - 10:05 - Engineer began investigation
+        - 10:20 - Root cause identified
+    validations:
+      required: false
+
+  - type: textarea
+    id: root_cause
+    attributes:
+      label: Root Cause
+      description: Known or suspected root cause (update as investigation progresses)
+    validations:
+      required: false
+
+  - type: textarea
+    id: resolution
+    attributes:
+      label: Resolution
+      description: Steps taken to resolve the incident and restore service
+    validations:
+      required: false
+
+  - type: textarea
+    id: followup
+    attributes:
+      label: Follow-up Actions
+      description: Preventive measures, improvements, or postmortem items
+    validations:
+      required: false
